@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
-use vendor\toolkit\Functions\FrontHelper;
+use vendor\toolkit\library\Front;
+
 /* @var $content */
 ?>
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ use vendor\toolkit\Functions\FrontHelper;
     <meta name="keywords" content="胖子的商城">
     <meta name="description" content="胖子的商城描述信息">
 
-    <?= FrontHelper::loadCssWithCDN([
+    <?= Front::loadCssWithCDN([
         'blog/dist/css/blog.min.css',
     ]) ?>
     <?= Html::cssFile('/favicon.ico', ['rel'=>'shortcut icon']) ?>

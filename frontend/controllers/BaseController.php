@@ -1,16 +1,13 @@
 <?php
 /**
- *
+ * 前端基础控制器
  * @author pawn
- * @date
+ * @date 2017年12月28日20:14:56
  */
-
 namespace frontend\controllers;
 
-use vendor\toolkit\Functions\Terminal;
+use vendor\toolkit\library\Terminal;
 use yii\web\Controller;
-use yii\web\ErrorAction;
-use yii\web\HttpException;
 
 class BaseController extends Controller
 {
