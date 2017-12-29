@@ -13,6 +13,7 @@ use common\models\ArticleModel;
 use vendor\toolkit\library\Page;
 use vendor\toolkit\library\Strings;
 use vendor\toolkit\output\Json;
+use yii\helpers\StringHelper;
 
 class Article extends ArticleModel implements BaseModel
 {
@@ -49,12 +50,26 @@ class Article extends ArticleModel implements BaseModel
      */
     public function beforeSave($insert)
     {
-        $images = Strings::getImages($this->content);
-        if ($images) {
-            $this->avatar = current($images);
-            $this->thumbs = Json::encode($images);
-        }
+        //获取纯文本信息
+        $this->summary = Strings::substring($this->getSummary($this->content), 600, '......');
 
         return parent::beforeSave($insert);
+    }
+
+    /**
+     * 抓取文章的正文信息
+     * @author pawn
+     * @param string $content
+     * @return string
+     * @date 2017年12月29日00:05:13
+     */
+    private function getSummary(string $content):string
+    {
+        //删除pre代码块
+//        $content = preg_replace('/<pre[^>]*>[^>]*<\/pre>/', '', $content);
+        //删除前置p标签
+        $content = preg_replace('/<(\/?[a-z]+)[^>]*>/i', '', $content);
+        //清除代码中的空格以及后置p标签
+        return preg_replace('/(\s|&nbsp;)/', '', $content);
     }
 }

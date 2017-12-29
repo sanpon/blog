@@ -8,7 +8,7 @@ namespace backend\modules\Category\models;
 
 use backend\models\BaseModel;
 use common\models\CategoryModel;
-use vendor\toolkit\Functions\Recursive;
+use vendor\toolkit\library\Recursive;
 use yii\db\ActiveRecord;
 
 class Category extends CategoryModel implements BaseModel

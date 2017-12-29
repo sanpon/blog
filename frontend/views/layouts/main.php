@@ -6,25 +6,10 @@ use vendor\toolkit\library\Front;
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= Html::encode($this->title) ?> - <?= Yii::$app->params['titleSuffix'] ?></title>
-    <meta name="keywords" content="胖子的商城">
-    <meta name="description" content="胖子的商城描述信息">
-
-    <?= Front::loadCssWithCDN([
-        'blog/dist/css/blog.min.css',
-    ]) ?>
-    <?= Html::cssFile('/favicon.ico', ['rel'=>'shortcut icon']) ?>
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;url=/ie.html" />
-    <![endif]-->
-    <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
-</head>
+<?= $this->render('head'); ?>
 <body class="wrap">
     <!-- 网站标题 -->
-    <div class="website"><a href="/">菜鸟·码农</a></div>
+    <div class="website"><a href="/"><?= Yii::$app->params['website'] ?></a></div>
     <div class="header">
         <div class="frame clear">
             <ul class="navigation clear">
@@ -55,7 +40,7 @@ use vendor\toolkit\library\Front;
         <?= $content ?>
         <div class="extent">
             <fieldset class="widget">
-                <legend class="title">热门推荐</legend>
+                <legend class="title">最近更新</legend>
                 <ul class="context">
                     <li><a href="#">Zabbix通过jmx监控tomcat</a></li>
                     <li><a href="#">Zabbix新增Nginx活动连接数监...</a></li>
@@ -77,7 +62,7 @@ use vendor\toolkit\library\Front;
         </div>
     </div>
     <div class="footer">
-        <div class="frame version">2016-<?= date('Y') ?>@菜鸟.码农</div>
+        <div class="frame version">2016-<?= date('Y') ?>@<?= Yii::$app->params['website'] ?></div>
     </div>
 </body>
 </html>

@@ -9,7 +9,7 @@ return [
         'title' => '控制面板',
         'name' => 'dashboard',
         'icon' => 'icon-dashboard',
-        'url' => ['/index/index/index'],
+        'url' => ['/index/default/index'],
     ],
     [
         'title' => '博客管理',
@@ -35,10 +35,10 @@ return [
                 'title' => '用户管理',
                 'url' => ['/members/default/index'],
             ],
-            [
-                'title' => '角色管理',
-                'url' => ['/role/default/index'],
-            ]
+//            [
+//                'title' => '角色管理',
+//                'url' => ['/role/default/index'],
+//            ]
         ]
     ],
     [

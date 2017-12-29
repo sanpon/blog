@@ -6,9 +6,9 @@
 /* @var $exception Exception */
 use yii\helpers\Html;
 
-$this->title = $message;
+$this->title = isset($message) ? $message : '系统出错了';
 ?>
 <div class="error">
-    <div class="message"><?= Html::encode($message) ?> - (#<?= $code ?>)</div>
+    <div class="message"><?= $code ? Html::encode($message) : '页面未找到' ?> - (#<?= $code ? $code : '404' ?>)</div>
     <div class="goHome"><a href="/">返回首页</a></div>
 </div>

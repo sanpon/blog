@@ -1,5 +1,4 @@
 <?php
-use \frontend\config\UrlManage;
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -13,7 +12,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'defaultRoute' => '/index/index/index',
+    'defaultRoute' => '/index/default/index',
     'modules' => $modules,
     'components' => [
         'request' => [

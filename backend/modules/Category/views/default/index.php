@@ -6,10 +6,10 @@
  * @date 2017年11月28日12:28:54
  */
 use yii\helpers\Url;
-use vendor\toolkit\Functions\FrontHelper;
+use vendor\toolkit\library\Front;
 
 $this->title = '分类管理';
-$this->params['breadcrumbs'][] = ['label'=>$this->title];
+$this->params['crumbs'][] = ['label'=>$this->title];
 
 ?>
 <div id="hiddenData">
@@ -43,6 +43,6 @@ $this->params['breadcrumbs'][] = ['label'=>$this->title];
         </tbody>
     </table>
 </div>
-<?= FrontHelper::loadScriptWithCDN([
+<?= Front::assetsCDN([
     'blog/src/backend/lib/infinite.js',
 ]) ?>

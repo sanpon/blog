@@ -6,8 +6,8 @@ use \vendor\toolkit\library\Front;
 $user = Yii::$app->user->identity;
 $suffix = Yii::$app->params['titleSuffix'];
 $this->title = $this->title ? $this->title . ' - ' . $suffix : $suffix;
-$r = [['label'=>'控制面板', 'url'=>[Yii::$app->defaultRoute]]];
-$this->params['crumbs'] = isset($this->params['crumbs']) ? array_merge($r, $this->params['crumbs']) : [];
+$default = [['label'=>'控制面板', 'url'=>[Yii::$app->defaultRoute]]];
+$this->params['crumbs'] = isset($this->params['crumbs']) ? array_merge($default, $this->params['crumbs']) : [];
 //当前模块路由信息
 $_module = $this->context->module->id;
 $_action = $this->context->action->id;
@@ -20,13 +20,11 @@ $_route = $this->context->route;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $this->title ?></title>
     <meta name="renderer" content="webkit">
-    <?= Front::loadScriptWithCDN([
+    <?= Front::assetsCDN([
         'assets/lib/jquery/jquery.2.2.0.min.js',
-        'blog/src/backend/lib/slimscroll.min.js'
-    ])?>
-    <?= Front::loadCssWithCDN([
+        'blog/src/backend/lib/slimscroll.min.js',
         'blog/dist/css/backend/'. $_module . '/' . $_action .'.min.css'
-    ]) ?>
+    ]); ?>
 </head>
 <body class="wrapper">
     <div class="sidebar" id="sidebar">
@@ -82,9 +80,9 @@ $_route = $this->context->route;
             </ul>
         </div>
         <div class="container" id="pjax-container">
-            <?php if ($this->params['breadcrumbs']) : ?>
+            <?php if ($this->params['crumbs']) : ?>
                 <ul class="breadcrumbs clear">
-                    <?php foreach ($this->params['breadcrumbs'] as $item) : ?>
+                    <?php foreach ($this->params['crumbs'] as $item) : ?>
                         <?php if (isset($item['url'])) : ?>
                             <li><a href="<?= Url::toRoute($item['url'])?>"><?= $item['label'] ?></a></li>
                         <?php else : ?>
@@ -106,6 +104,6 @@ $_route = $this->context->route;
             <span class="text">加载中。。。</span>
         </div>
     </div>
-    <?= Front::loadScriptWithCDN(['blog/dist/lib/main.min.js']) ?>
+    <?= Front::assetsCDN(['blog/dist/lib/main.min.js']) ?>
 </body>
 </html>

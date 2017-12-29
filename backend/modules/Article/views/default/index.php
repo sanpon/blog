@@ -9,7 +9,7 @@ use yii\helpers\Url;
 use backend\modules\Article\models\Article;
 
 $this->title = '博文管理';
-$this->params['breadcrumbs'][] = ['label'=>$this->title];
+$this->params['crumbs'][] = ['label'=>$this->title];
 
 ?>
 

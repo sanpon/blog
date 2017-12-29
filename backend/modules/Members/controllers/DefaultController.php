@@ -11,6 +11,12 @@ use backend\modules\Members\models\Members;
 
 class DefaultController extends BaseController
 {
+    /**
+     * 用户管理列表页
+     * @author pawn
+     * @return string
+     * @date 2017年12月29日11:58:54
+     */
     public function actionIndex()
     {
         $members = new Members();
@@ -18,5 +24,15 @@ class DefaultController extends BaseController
         return $this->render('index', [
             'members' => $members
         ]);
+    }
+
+    /**
+     * 用户信息更新
+     * @author pawn
+     * @date 2017年12月29日11:59:21
+     */
+    public function actionUpdate()
+    {
+        return $this->render('update');
     }
 }

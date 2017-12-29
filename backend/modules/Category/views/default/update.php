@@ -9,8 +9,8 @@
 use yii\widgets\ActiveForm;
 
 $this->title = '创建分类';
-$this->params['breadcrumbs'][] = ['label'=>'文章分类', 'url'=>['default/index']];
-$this->params['breadcrumbs'][] = ['label'=>$this->title];
+$this->params['crumbs'][] = ['label'=>'文章分类', 'url'=>['default/index']];
+$this->params['crumbs'][] = ['label'=>$this->title];
 ?>
 <div class="catalog">
     <?php $form = ActiveForm::begin(['method'=>'POST', 'action'=>['update', 'id'=> $model->cate_id]]); ?>

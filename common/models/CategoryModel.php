@@ -41,8 +41,8 @@ class CategoryModel extends Model
             ['name', 'unique', 'message'=>'{attribute}已经存在'],
             ['name', 'string', 'length'=>[1, 50]],
             ['nickname', 'string', 'length'=>[1, 60]],
-            [['pid', 'fav'], 'integer'],
-            [['pid', 'fav'], 'default', 'value'=>0],
+            [['pid'], 'integer'],
+            [['pid'], 'default', 'value'=>0],
             ['type', 'in', 'range'=>[self::NAME, self::NICKNAME]],
             ['type', 'default', 'value'=>self::NAME],
         ];
@@ -59,8 +59,7 @@ class CategoryModel extends Model
         return [
             'name' => '分类名称',
             'nickname' => '分类别名',
-            'type' => '名称显示方式',
-            'fav' => '兴趣爱好'
+            'type' => '名称显示方式'
         ];
     }
 

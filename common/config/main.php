@@ -19,7 +19,8 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the app
-            'name' => 'blog',
+
+            'name' => 'blog'
         ],
         //语言配置
 //        'i18n' => [
@@ -33,16 +34,9 @@ return [
 //                ],
 //            ],
 //        ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'viewPath' => '@common/mail',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
-        ],
+        'mailer' => $mail,
         'assetManager' => [
-            'bundles' => false,
+            'bundles' => false
         ],
     ],
 ];

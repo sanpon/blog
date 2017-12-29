@@ -9,7 +9,7 @@ namespace backend\modules\Index\controllers;
 use backend\controllers\BaseController;
 use backend\modules\Index\models\Index;
 
-class IndexController extends BaseController
+class DefaultController extends BaseController
 {
     /**
      * 后台首页

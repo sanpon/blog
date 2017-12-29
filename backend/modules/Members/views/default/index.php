@@ -2,13 +2,14 @@
 /**
  * 用户管理
  * @author pawn
- * @var \vendor\toolkit\Functions\Page $members
- * @var \backend\modules\Members\models\MembersModel $member
+ * @var \vendor\toolkit\library\Page $members
+ * @var \backend\modules\Members\models\Members $member
  * @date 2017年11月27日20:29:34
  */
 use yii\helpers\Url;
 
 $this->title = '用户管理';
+$this->params['crumbs'][] = ['label'=>$this->title];
 ?>
 <div class="user">
     <div class="controller clear">
@@ -61,8 +62,8 @@ $this->title = '用户管理';
             <td>seo 黑猫</td>
             <td><?= date('Y.m.d H:i:s', $member->datetime) ?></td>
             <td>
-                <a href="<?= Url::to(['members/default/update', 'uid'=>$member->uid]) ?>">更新</a>
-                <a href="<?= Url::to(['members/default/delete', 'uid'=>$member->uid]) ?>">删除</a>
+                <a href="<?= Url::to(['update', 'uid'=>$member->uid]) ?>">更新</a>
+                <a href="<?= Url::to(['delete', 'uid'=>$member->uid]) ?>">删除</a>
             </td>
         </tr>
         <?php endforeach; ?>

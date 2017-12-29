@@ -13,6 +13,28 @@ use yii\helpers\Url;
 
 class Article extends ArticleModel
 {
+
+    public static function getList()
+    {
+        $list = static::find()
+            ->select([
+                'id' => 'article_id',
+                'title',
+                'summary',
+                'keywords',
+                'comments',
+                'datetime'
+            ])
+            ->limit(10)
+            ->asArray()->all();
+        array_walk($list, function (&$val) {
+            $val['url'] = Url::to(['default/detail', 'id'=>$val['id']]);
+            $val['datetime'] = date('Y年m月d日 H:i:s', $val['datetime']);
+            $val['keywords'] = $val['keywords'] ? explode(',', $val['keywords']) : [];
+        });
+        return $list;
+    }
+
     /**
      * 查询文章详情
      * @author pawn

@@ -17,12 +17,12 @@ $context = $this->context;
 ?>
 <title><?= $this->title ?></title>
 
-<?= Front::loadCssWithCDN([
+<?= Front::assetsCDN([
     'blog/dist/css/backend/'. $context->module->id . '/' . $context->action->id .'.min.css'
 ]) ?>
-<?php if ($this->params['breadcrumbs']) : ?>
+<?php if ($this->params['crumbs']) : ?>
 <ul class="breadcrumbs clear">
-    <?php foreach ($this->params['breadcrumbs'] as $item) : ?>
+    <?php foreach ($this->params['crumbs'] as $item) : ?>
         <?php if (isset($item['url'])) : ?>
             <li><a href="<?= Url::to()?>"><?= $item['label'] ?></a></li>
         <?php else : ?>

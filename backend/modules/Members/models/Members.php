@@ -8,7 +8,7 @@ namespace backend\modules\Members\models;
 
 use backend\models\BaseModel;
 use common\models\MembersModel;
-use vendor\toolkit\Functions\Page;
+use vendor\toolkit\library\Page;
 
 class Members extends MembersModel implements BaseModel
 {

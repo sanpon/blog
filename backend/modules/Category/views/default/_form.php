@@ -5,11 +5,11 @@
  * @var array $category 分类数据
  * @date 2017年12月15日11:37:322
  */
-use vendor\toolkit\Functions\FrontHelper;
-use \vendor\toolkit\Functions\FormHelper;
+use vendor\toolkit\library\Front;
+use vendor\toolkit\library\Form;
 
 ?>
-<?= FrontHelper::loadScriptWithCDN([
+<?= Front::assetsCDN([
     'blog/src/backend/lib/marquee.js',
     'blog/src/backend/lib/dropdown.js',
 ]) ?>
@@ -38,7 +38,7 @@ use \vendor\toolkit\Functions\FormHelper;
         'placeholder' => '分类别名',
         'class' => 'form-input'
     ]) ?>
-    <?= FormHelper::app()->radioList($model, 'type', [
+    <?= Form::app()->radioList($model, 'type', [
         'name' => '显示方式',
         'hint' => '分类在前端的显示名称',
         'class' => 'active',
@@ -55,24 +55,7 @@ use \vendor\toolkit\Functions\FormHelper;
             ]
         ]
     ]) ?>
-    <?= FormHelper::app()->checkboxList($model, 'fav', [
-        'name' => '兴趣爱好',
-        'hint' => '设置兴趣爱好',
-        'class' => 'active',
-        'data' => [
-            [
-                'id' => 'football',
-                'label' => '足球',
-                'value' => 1
-            ],
-            [
-                'id' => 'basketball',
-                'label' => '篮球',
-                'value' => 2
-            ]
-        ]
-    ]) ?>
-    <?= FormHelper::app()->dropDown($model, 'pid', [
+    <?= Form::app()->dropDown($model, 'pid', [
         'name' => '父级分类',
         'primaryKey' => 'cate_id',
         'default' => '顶级分类',

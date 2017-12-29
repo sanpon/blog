@@ -29,7 +29,7 @@ class ArticleModel extends Model
     {
         return [
             [['title', 'cate_id'], 'required'],
-            [['keywords', 'content'], 'string'],
+            [['keywords', 'content', 'summary'], 'string'],
             ['comments', 'integer'],
             ['author', 'default', 'value'=>\Yii::$app->user->id]
         ];

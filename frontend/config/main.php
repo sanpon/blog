@@ -9,7 +9,7 @@ $params = array_merge(
 $modules = require(__DIR__ . '/modules.php');
 
 return [
-    'id' => 'app',
+    'id' => 'frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -32,7 +32,9 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'base/error',
+            'errorAction' => 'site/error',
+//            'errorView' => '@frontend/views/site/error.php',
+//            'exceptionView' => '@frontend/views/site/error.php',
         ],
         'urlManager' => UrlManage::rules(),
     ],

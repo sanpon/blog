@@ -9,7 +9,8 @@
 use yii\widgets\ActiveForm;
 
 $this->title = '更新文章';
-$this->params['breadcrumbs'][] = ['label'=>$this->title];
+$this->params['crumbs'][] = ['label'=>'博文管理', 'url'=>['index']];
+$this->params['crumbs'][] = ['label'=>$this->title];
 ?>
 
 <div class="article">

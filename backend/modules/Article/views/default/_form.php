@@ -9,7 +9,7 @@ use vendor\toolkit\library\Form;
 use vendor\toolkit\editor\UEditor;
 use vendor\toolkit\library\Front;
 ?>
-<?= Front::loadScriptWithCDN([
+<?= Front::assetsCDN([
     'blog/src/backend/lib/tagit.js',
     'blog/src/backend/lib/dropdown.js'
 ]); ?>

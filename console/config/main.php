@@ -24,6 +24,12 @@ return [
                 ],
             ],
         ],
+        'user' => [
+            'class' => 'common\models\MembersModel',
+        ],
+        'session' => [
+            'class' => 'yii\web\Session',
+        ],
     ],
     'modules' => [
         'gii' => 'yii\gii\Module',

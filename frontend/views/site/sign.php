@@ -7,6 +7,7 @@
  */
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
+use vendor\toolkit\library\Front;
 
 $this->title = '加入菜鸟';
 
@@ -38,6 +39,9 @@ $this->title = '加入菜鸟';
         <li><button class="btn form-submit">注册</button></li>
     </ul>
     <?php $form::end() ?>
+    <?= Front::loadScriptWithCDN([
+       'assets/lib/jquery/jquery.2.2.0.min.js'
+    ]); ?>
     <script>
         $("#captcha-img").click(function () {
             var self = this,

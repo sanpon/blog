@@ -11,6 +11,6 @@ class OrderController extends Controller
 {
     public function actionIndex()
     {
-        echo '11111';
+        echo '控制台信息';
     }
 }

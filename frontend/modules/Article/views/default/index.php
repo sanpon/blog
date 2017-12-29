@@ -1,68 +1,45 @@
 <?php
-use yii\helpers\Url;
 
 $this->title = 'PHP码农';
 ?>
 <div class="container index">
     <div class="list">
-        <ul class="row">
-            <li class="title"><a href="<?= Url::to(['/article/default/detail', 'id'=>1]) ?>">爬取豆瓣Top250电影排行榜</a></li>
+        <?php
+        $len = count($list)-1;
+        foreach ($list as $k => $l) :
+        ?>
+        <ul class="row <?= $len==$k ? 'last' : '' ?>">
+            <li class="title">
+                <a href="<?= $l['url'] ?>"><?= $l['title'] ?></a>
+            </li>
             <li class="counter">
                 <ol class="clear">
                     <li>
                         <i class="icon icon-cate"></i>
                         <span>极客Python之效率革命</span>
                     </li>
+                    <?php if ($l['keywords']) : ?>
                     <li>
                         <i class="icon icon-tags"></i>
-                        <span class="tag">Python</span>
-                        <span class="tag">爬虫</span>
-                        <span class="tag">电影</span>
+                        <?php foreach ($l['keywords'] as $k) : ?>
+                        <span class="tag"><?= $k ?></span>
+                        <?php endforeach; ?>
                     </li>
+                    <?php endif; ?>
                     <li>
                         <i class="icon icon-clock"></i>
-                        <span>2017年11月17日 11:36:34</span>
+                        <span><?= $l['datetime'] ?></span>
                     </li>
                     <li>
                         <i class="icon icon-message" title="评论量"></i>
-                        <span>156</span>
+                        <span><?= $l['comments'] ?></span>
                     </li>
                 </ol>
             </li>
-            <li class="thumb"><img src="http://blog.fishc.com/wp-content/uploads/2015/08/75b1OOOPIC9b.jpg" alt=""></li>
-            <li class="detail"><p>Linux通过 nice 命令更改优先级执行诚如，范围为-20(最高优先) 到19(最低优先) 使用这个命令必须为root 例如： 把sshd进程设置最高优先级， 当服务器CPU无论怎么暴涨， 都保证ssh能正常连接 改变进程优先级有两种， 一是进程已经在执行的情况， 二是还未执行 1.进程已经在</p></li>
+            <li class="thumb"><img src="http://static.roxtiger.com/blog/dist/images/ban-01.png" alt=""></li>
+            <li class="detail"><p><?= $l['summary'] ?></p></li>
         </ul>
-        <ul class="row last">
-            <li class="title"><a href="<?= Url::to(['detail']) ?>">爬取豆瓣Top250电影排行榜</a></li>
-            <li class="counter">
-                <ol class="clear">
-                    <li>
-                        <i class="icon icon-tags"></i>
-                        <span class="tag">Python</span>
-                        <span class="tag">爬虫</span>
-                        <span class="tag">电影</span>
-                    </li>
-                    <li>
-                        <i class="icon icon-view" title="浏览量"></i>
-                        <span>156</span>
-                    </li>
-                    <li>
-                        <i class="icon icon-message" title="评论量"></i>
-                        <span>156</span>
-                    </li>
-                    <li>
-                        <i class="icon icon-praise" title="点赞量"></i>
-                        <span>156</span>
-                    </li>
-                    <li>
-                        <i class="icon icon-clock"></i>
-                        <span>2017年11月17日 11:36:34</span>
-                    </li>
-                </ol>
-            </li>
-            <li class="thumb"><img src="http://blog.fishc.com/wp-content/uploads/2015/08/75b1OOOPIC9b.jpg" alt=""></li>
-            <li class="detail"><p>Linux通过 nice 命令更改优先级执行诚如，范围为-20(最高优先) 到19(最低优先) 使用这个命令必须为root 例如： 把sshd进程设置最高优先级， 当服务器CPU无论怎么暴涨， 都保证ssh能正常连接 改变进程优先级有两种， 一是进程已经在执行的情况， 二是还未执行 1.进程已经在</p></li>
-        </ul>
+        <?php endforeach; ?>
     </div>
 
     <ol class="pagination clear">
